@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Evento{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  titulo String
+  descricao String
+  horario String
+  data String 
+  @@map("evento")
+}
